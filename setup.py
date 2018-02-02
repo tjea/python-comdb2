@@ -18,6 +18,9 @@ from comdb2 import __version__
 
 ccdb2 = Extension("comdb2._ccdb2",
                   extra_compile_args=['-std=c99'],
+                  extra_link_args=['-Wl,-rpath','-Wl,/opt/bb/lib'],
+                  include_dirs=['/opt/bb/include'],
+                  library_dirs=['/opt/bb/lib','/usr/local/lib/'],
                   libraries=['cdb2api', 'protobuf-c'],
                   sources=["comdb2/_ccdb2.pyx"])
 
